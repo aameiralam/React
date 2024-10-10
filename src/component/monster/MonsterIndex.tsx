@@ -1,4 +1,4 @@
-import { Paper,Table, TableCell, TableHead, TableBody, TableRow, Button } from "@mui/material";
+import { Paper,Table, TableCell, TableHead, TableBody, TableRow, Button, Container, Typography } from "@mui/material";
 import MonsterRow from "./MonsterRow";
 import { useQuery } from "@tanstack/react-query";
 import Monster from "../../types/Monster";
@@ -39,6 +39,22 @@ function MonsterIndex() {
 
 
     return (
+
+        <>
+         <Container maxWidth="xl" sx= {{ width:'100%', textAlign: 'center', py: 5, backgroundColor: '#3f51b5' }}>
+      <Typography variant="h3" gutterBottom>
+        Welcome to Monster Show
+      </Typography>
+      <Typography variant="h6" color="textSecondary" paragraph>
+        Explore the world of monsters, legends, and mysteries!
+      </Typography>
+    </Container>
+
+    <br></br>
+    <br></br>
+
+
+
         <Paper sx={{width:'100%',overflow: 'hidden'}}>
             <Button onClick = {openCreateMonster}>
                 Create new Monster 
@@ -50,25 +66,51 @@ function MonsterIndex() {
             <Table stickyHeader>
                 <TableHead>
                     <TableRow> 
-                        <TableCell>
-                        Name
+                        <TableCell align="center">
+                <Button variant="contained" color="primary">
+                    NAME
+                </Button>
                     </TableCell>
                     
-                        <TableCell>
-                        Species
+                        <TableCell align="center">
+                <Button variant="contained" color="primary">
+                    SPECIES
+                </Button>
                     </TableCell>
                     
-                    <TableCell>
-                        Attack Power
+                    <TableCell align="center">
+                <Button variant="contained" color="primary">
+                    ATTACK POWER
+                </Button>
                     </TableCell>
                     
-                    <TableCell>
-                        Defense Power
+                    <TableCell align="center">
+                <Button variant="contained" color="primary">
+                    DEFENSE POWER
+                </Button>
+                        
                     </TableCell>
                     
-                    <TableCell>
-                        Price
+                    <TableCell align="center">
+                <Button variant="contained" color="primary">
+                    PRICE
+                </Button>
+                        
+                        
                     </TableCell>
+
+                    <TableCell align="center">
+                <Button variant="contained" color="primary">
+                    Update
+                </Button>
+            </TableCell>
+
+            <TableCell align="center">
+                <Button variant="contained" color="secondary">
+                    Delete
+                </Button>
+            </TableCell>
+
                     </TableRow>
                    
                 </TableHead>
@@ -84,7 +126,22 @@ function MonsterIndex() {
                 </TableBody>
             </Table>
             </Paper>
+
+            <br></br>
+
+            {/* <Container maxWidth="xl" sx={{ textAlign: 'center', py: 3, mt: 5, backgroundColor: '#f4f4f4' }}>
+            <Typography variant="body1">&copy; 2024 Monster Show. All rights reserved.</Typography>
+            </Container> */}
+
+
+
+
+            </>
     );
+
+
+
+
 }
 
 export default MonsterIndex;
