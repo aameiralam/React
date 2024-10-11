@@ -44,7 +44,8 @@ function CreateMonster({ isOpen, onClose }) {
         method: "POST",
         body: JSON.stringify(newMonster),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json", 
+            "Authorization": "Bearer" + sessionStorage.getItem("Authorization")
         }
       })
       const response = request.json()

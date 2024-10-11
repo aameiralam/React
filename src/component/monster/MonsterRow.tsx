@@ -32,6 +32,8 @@ function MonsterRow({data}:{data:Monster}) {
         <TableCell>
             $ {price}
         </TableCell>
+        {sessionStorage.getItem("Authorization") ?
+        <>
         <TableCell>
             {/* <a onClick={() => navigate("/update", {state:data})}> Update Monster</a> if not using the hover effect */}
             <MuiLink
@@ -46,6 +48,8 @@ function MonsterRow({data}:{data:Monster}) {
         <TableCell>
             <DeleteMonster id={id} open = {open} openModal={openModal} closeModal={closeModal}/>
         </TableCell>
+        </>
+        :null}
        </TableRow>
     );
 }

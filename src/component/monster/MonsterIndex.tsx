@@ -56,10 +56,10 @@ function MonsterIndex() {
 
 
         <Paper sx={{width:'100%',overflow: 'hidden'}}>
-            <Button onClick = {openCreateMonster}>
+           {sessionStorage.getItem("Authorization")?<Button onClick = {openCreateMonster}>
                 Create new Monster 
 
-            </Button>
+            </Button> : null}
 
             <CreateMonster isOpen = {isOpen} onClose = {closeCreateMonster}/>
 
