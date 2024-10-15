@@ -1,4 +1,4 @@
-import { Box, FormControl, InputLabel, Input, Button } from "@mui/material";
+import { Box, FormControl, InputLabel, Input, Button, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -29,8 +29,7 @@ function Login() {
             const errorMessage = await request.text();
             throw new Error(errorMessage);
         } else {
-            // Parse the response as JSON
-            return request.text();
+            return request.text(); // Assuming the token is returned as plain text
         }
     };
 
@@ -60,8 +59,8 @@ function Login() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '100vh', // Center vertically
-                backgroundColor: '#f5f5f5', // Light background
+                height: '100vh',
+                backgroundColor: '#f5f5f5',
                 padding: 3
             }}
         >
@@ -71,10 +70,14 @@ function Login() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     width: '100%',
-                    maxWidth: '400px', // Width constraints
-                    gap: 3 // Spacing between elements
+                    maxWidth: '400px',
+                    gap: 3
                 }}
             >
+                <Typography variant="h4" sx={{ marginBottom: 3 }}>
+                    Log In Page
+                </Typography>
+
                 <FormControl fullWidth>
                     <InputLabel htmlFor="email">Email</InputLabel>
                     <Input
@@ -103,8 +106,17 @@ function Login() {
                     fullWidth
                     sx={{ padding: '10px 0', fontWeight: 'bold' }}
                 >
-                    Sign Up
+                    Log In
                 </Button>
+
+                <Button
+                variant="outlined"
+                color="primary"
+                sx={{ width: '300px', padding: '10px 0' }}
+                onClick={() => navigate("/register")}
+            >
+                Do not have an account? Sign Up
+            </Button>
             </Box>
         </Box>
     );

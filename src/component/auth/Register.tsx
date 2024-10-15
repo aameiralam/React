@@ -1,74 +1,11 @@
-// import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
-// import { useFormik } from "formik";
 
-
-// function Register() {
-    
-//     const formik = useFormik({
-//         initialValues: {
-//             email: "",
-//             password: "",
-//             role:"USER"
-//         },
-//         onSubmit:(values) => {
-
-//         }
-//     })
-  
-    
-//     return (
-//         <Box component = "form" onSubmit={formik.
-//         handleSubmit}>
-
-//             <FormControl>
-//             <InputLabel htmlFor = "email">
-//             Email:
-
-//             </InputLabel>
-//             <Input id= "email"
-//             value={formik.values.email}
-//             onChange={formik.handleChange}
-//             onBlur={formik.handleBlur}
-//             />
-//         </FormControl>
-
-//         <FormControl>
-//             <InputLabel htmlFor="password">
-//             Password:
-//             </InputLabel>
-//             <Input id="password"
-//             value={formik.values.password}
-//             onChange={formik.handleChange}
-//             onBlur={formik.handleBlur}
-//             type="password"
-//             />
-
-
-//         </FormControl>
-
-//         <Button type="submit">
-
-//             Sign Up
-
-//         </Button>
-
-
-
-//         </Box>
-//     );
-// }
-
-// export default Register;
 
 import { Box, Button, FormControl, Input, InputLabel, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-
-
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -78,20 +15,19 @@ function Register() {
         },
         onSubmit: async (values) => {
             // Handle form submission
-
-            const request = await fetch(import.meta.env.VITE_API_URL + "/auth/register",{
-                method:"POST",
-                headers:{
+            const request = await fetch(import.meta.env.VITE_API_URL + "/auth/register", {
+                method: "POST",
+                headers: {
                     "content-Type": "application/json"
                 },
                 body: JSON.stringify(values)
-            })
-            if(!request.ok){
-                const errorMessage = await request.text()
-                throw new Error(errorMessage)
-            }else{
-                alert("New User has been created")
-                navigate("/login")
+            });
+            if (!request.ok) {
+                const errorMessage = await request.text();
+                throw new Error(errorMessage);
+            } else {
+                alert("New User has been created");
+                navigate("/login");
             }
         }
     });
@@ -141,12 +77,23 @@ function Register() {
                 type="submit"
                 variant="contained"
                 color="primary"
-                sx={{ width: '300px', padding: '10px 0' }}
+                sx={{ width: '300px', padding: '10px 0', marginBottom: 2 }}
             >
                 Sign Up
+            </Button>
+
+            {/* Login button */}
+            <Button
+                variant="outlined"
+                color="primary"
+                sx={{ width: '300px', padding: '10px 0' }}
+                onClick={() => navigate("/login")}
+            >
+                Already have an account? Log In
             </Button>
         </Box>
     );
 }
 
 export default Register;
+

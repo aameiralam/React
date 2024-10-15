@@ -23,7 +23,7 @@ function MonsterRow({data}:{data:Monster}) {
         <TableCell>
             {species}
         </TableCell>
-        <TableCell>
+        <TableCell> 
             {attackPower}
         </TableCell>
         <TableCell>
